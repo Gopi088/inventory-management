@@ -920,3 +920,145 @@ body[data-theme="light"] .section-header {
 .sidebar {
   will-change: transform;
 }
+
+@media (max-width: 768px) {
+
+  /* REMOVE SCROLL */
+  .table-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  /* KEEP TABLE NORMAL */
+  .table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* HIDE EXTRA COLUMNS SAFELY */
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(5),
+  td:nth-child(5),
+  th:nth-child(6),
+  td:nth-child(6),
+  th:nth-child(7),
+  td:nth-child(7),
+  th:nth-child(8),
+  td:nth-child(8),
+  th:nth-child(9),
+  td:nth-child(9) {
+    display: none;
+  }
+
+  /* KEEP 3 COLUMNS CLEAN */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 45%;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 30%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 25%;
+  }
+
+  /* FIX SERIAL BREAK */
+  .mono {
+    word-break: break-word;
+    font-size: 11px;
+  }
+
+  /* SMALL TEXT FIX */
+  .asset-name {
+    font-size: 13px;
+  }
+
+  .asset-serial {
+    font-size: 10px;
+  }
+
+}
+.mobile-view {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .table {
+    display: none;
+  }
+
+  .mobile-view {
+    display: block;
+    padding: 10px;
+  }
+
+  .mobile-section {
+    margin: 10px 0 6px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .mobile-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .mobile-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .mobile-item span:first-child {
+    color: var(--muted);
+  }
+
+  .mobile-item span:last-child {
+    text-align: right;
+    word-break: break-word;
+  }
+}
+/* HIDE MENU BUTTON ON DESKTOP */
+.menu-btn {
+  display: none;
+}
+
+/* SHOW ONLY ON MOBILE */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+}
+
+.menu-dots {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.mobile-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-actions button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: white;
+}
+
+.mobile-actions .danger {
+  color: red;
+}

@@ -170,52 +170,48 @@ export const App: React.FC = () => {
   )}
 
   <div className="main">
+          <div className="topbar">
 
-  {/* ✅ RESPONSIVE HEADER */}
-  <div className="topbar mobile-header">
+  {/* 🔥 MOBILE MENU BUTTON */}
+  <button
+    className="menu-btn"
+    onClick={() => setSidebarOpen(true)}
+  >
+    ☰
+  </button>
+            <div>
+              <div className="page-title">{pageTitle}</div>
+              <div className="page-sub">{pageSub}</div>
+            </div>
 
-    {/* 🔥 FIRST ROW */}
-    <div className="topbar-row">
+            <div className="topbar-right">
 
-      {/* MENU BUTTON */}
-      <button
-        className={`menu-btn ${sidebarOpen ? 'active' : ''}`}
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+              {/* 🌙 THEME TOGGLE */}
+              <button className="btn btn-ghost" onClick={toggleTheme}>
+                {theme === 'dark' ? '🌞 Light' : '🌙 Dark'}
+              </button>
 
-      {/* TITLE CENTER */}
-      <div className="header-center">
-        <div className="page-title">{pageTitle}</div>
-        <div className="page-sub">{pageSub}</div>
-      </div>
+              {page === 'inventory' && (
+                <div className="search-box">
+                  <input
+                    placeholder="Search..."
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                  />
+                </div>
+              )}
 
-      {/* EMPTY FOR BALANCE */}
-      <div style={{ width: 36 }} />
-    </div>
-
-    {/* 🔥 SECOND ROW */}
-    <div className="topbar-actions">
-
-      <button className="btn btn-ghost" onClick={toggleTheme}>
-        {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
-      </button>
-
-      <button
-        className="btn btn-primary"
-        onClick={() => {
-          setSelectedType('asset');
-          setModal('add');
-        }}
-      >
-        + Add Asset
-      </button>
-
-    </div>
-  </div>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  setSelectedType('asset');
+                  setModal('add');
+                }}
+              >
+                + Add Asset
+              </button>
+            </div>
+          </div>
 
           <div className="content">
             {page === 'dashboard' && (
